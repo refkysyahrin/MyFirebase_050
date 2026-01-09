@@ -6,6 +6,10 @@ import kotlinx.coroutines.tasks.await
 interface RepositorySiswa {
     suspend fun getDataSiswa(): List<Siswa>
     suspend fun postDataSiswa(siswa: Siswa)
+    suspend fun getSatusiswa(idSiswa: Long): Siswa?
+    suspend fun editSatuSiswa(id: Long, siswa: Siswa)
+    suspend fun hapusSatuSiswa(idSiswa: Long)
+
 }
 class FirebaseRepositorySiswa : RepositorySiswa {
     private val db = FirebaseFirestore.getInstance()
